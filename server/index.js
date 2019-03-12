@@ -1,11 +1,15 @@
 import express  from 'express';
 import path from 'path';
 import bodyParser from 'body-parser';
-import { renameSync } from 'fs';
+import mongo from 'mongodb';
 
+require('dotenv').config()
 const app = express();
-const port = 3000;
+const port = 3001;
 const validator = require('./validator');
+const descrp = ["Capacitação", "Construção de time", "Processo Seletivo"];
+
+
 
 app.set('views', path.join(__dirname, '../public/src/'));
 app.use(express.static(path.join(__dirname, '../dist')));
@@ -13,7 +17,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.set('view engine', 'ejs');
 
 app.get('/', function(req, res) {
-    res.render('index', { message: "" });
+    res.render('index', { message: '' });
 });
 
 app.post('/save', function(req, res) {
@@ -21,8 +25,25 @@ app.post('/save', function(req, res) {
     const validationError = validator(req.body);
     if(validationError != "") {
         res.render('index', { message: validationError });
+    } else {
+        mongo.MongoClient.connect(process.env.MONGO_URI, function(err, database) {
+            if(err) console.log(err);
+            const db = database.db('fejers');
+
+            const entity = {
+                topic: {
+                    id: req.body.topic,
+                    descrp: descrp[req.body.topic]
+                },
+                link: req.body.link
+            };
+
+            db.collection('bot').insertOne(entity, function(err, result) {
+                if(err) return console.log(err)
+                res.render('index', { message: success });
+            });
+        });
     }
-    res.render('index', { message: success });
 });
 
 app.listen(process.env.port || port);

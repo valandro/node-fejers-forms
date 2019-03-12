@@ -9,14 +9,18 @@
         <h1 class="center">@botquedale</h1>
         <p class="text">Adicione novas referências para o bot indicar para os empresários juniores no Slack.</p>
         <div class="form">
-            <p class="message"><%= message %></p>
+            <% if(message == 'Salvo com sucesso!') { %>
+                <p class="message-success"><%= message %></p>
+            <% } else { %>
+                <p class="message-error"><%= message %></p>
+            <% } %>
             <form class="login-form" action="/save" method="POST">
                 <p>Selecione o tópico: </p>
                 <select name="topic" type="text" placeholder="Tópico">
                     <option value="-1">Selecione uma opção</option>
-                    <option value="1">Capacitação</option>
-                    <option value="2">Construção de time</option>
-                    <option value="3">Processo Seletivo</option>
+                    <option value="0" name="Capacitação">Capacitação</option>
+                    <option value="1" name="Construção de time">Construção de time</option>
+                    <option value="2" name="Processo Seletivo">Processo Seletivo</option>
                 </select>
                 <p>Cole aqui o link para a referência: </p>
                 <input name="link" type="link" placeholder="Link"/>

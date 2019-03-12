@@ -49,6 +49,9 @@ h1, p {
         -webkit-transition: all 0.3 ease;
         transition: all 0.3 ease;
         cursor: pointer;
+        &:hover {
+            background: #009900;
+        }
       }
       p {
         color: black;
@@ -56,8 +59,11 @@ h1, p {
         font-size: 1.25rem;
         margin-bottom: 0.75rem;
       }
-      .message {
+      .message-error {
           color: #c84e4d;
+      }
+      .message-success {
+        color: #009900;
       }
 }
 

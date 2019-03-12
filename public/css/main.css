@@ -46,13 +46,17 @@ h1, p {
     -webkit-transition: all 0.3 ease;
     transition: all 0.3 ease;
     cursor: pointer; }
+    .form button:hover {
+      background: #009900; }
   .form p {
     color: black;
     text-align: left;
     font-size: 1.25rem;
     margin-bottom: 0.75rem; }
-  .form .message {
+  .form .message-error {
     color: #c84e4d; }
+  .form .message-success {
+    color: #009900; }
 
 .text {
   grid-row: 4;

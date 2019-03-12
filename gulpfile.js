@@ -7,13 +7,13 @@ const minify = require('gulp-minify');
 const nodemon = require('gulp-nodemon');
 const image = require('gulp-image');
 
-gulp.task('sass', function () {
+gulp.task('sass', function() {
     return gulp.src('./public/sass/*.scss')
         .pipe(sass().on('error', sass.logError))
         .pipe(gulp.dest('./public/css'));
 });
 
-gulp.task('minify-css', function () {
+gulp.task('minify-css', function() {
     return gulp.src('./public/css/*.css')
         .pipe(uglifycss({
             "uglyComments": true
@@ -44,7 +44,7 @@ gulp.task('nodemon', function(callback){
       });
 });
 
-gulp.task('image', function () {
+gulp.task('image', function() {
     return gulp.src('./public/img/*.png')
       .pipe(image())
       .pipe(gulp.dest('./dist/img'));
@@ -52,7 +52,7 @@ gulp.task('image', function () {
 
 gulp.task('build', gulp.series(['sass','minify-css','minify-js','include-views', 'image']));
 
-gulp.task('watch', function(){
+gulp.task('watch', function() {
     gulp.watch('./public/sass/*.scss', gulp.series('sass'));
     gulp.watch('./public/css/*.css', gulp.series('minify-css'));
     gulp.watch('./public/src/**/*.*', gulp.series('include-views'));
