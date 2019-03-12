@@ -20,7 +20,7 @@ h1, p {
     grid-column: 4 / 10;
     background: white;
     border-radius: 10px;
-    padding: 45px;
+    padding: 2.5rem;
     text-align: center;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
     input, select {
@@ -80,4 +80,15 @@ h1, p {
     text-align: center;
     width: 12rem;
     margin: auto;
+}
+
+@media screen and (max-width: 400px) {
+    .fejers-img {
+        grid-column: 1 / 13;
+    }
+    .form {
+        padding: 1.5rem;
+        grid-row: 6 / 9;
+        grid-column: 2 / 12;
+    }
 }
