@@ -21,7 +21,10 @@ h1, p {
   padding: 45px;
   text-align: center;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24); }
-  .form input {
+  .form input, .form select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
     font-family: "Roboto", sans-serif;
     outline: 0;
     background: #f2f2f2;
@@ -48,6 +51,8 @@ h1, p {
     text-align: left;
     font-size: 1.25rem;
     margin-bottom: 0.75rem; }
+  .form .message {
+    color: #c84e4d; }
 
 .text {
   grid-row: 4;
