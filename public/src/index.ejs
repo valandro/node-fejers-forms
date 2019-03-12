@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <%- include('./include/head.ejs'); %>
+</head>
+<body>
+    <div class="main">
+        <img src="/img/fejers.png" class="fejers-img" alt="Logo FEJERS">
+        <h1 class="center">@botquedale</h1>
+        <p class="text">Adicione novas referências para o bot indicar para os empresários juniores no Slack.</p>
+        <div class="form">
+            <form class="login-form">
+                <p>Selecione o tópico: </p>
+                <input name="topico" type="text" placeholder="Tópico"/>
+                <p>Cole aqui o link para a referência: </p>
+                <input type="link" placeholder="Link"/>
+                <button>Cadastre</button>
+            </form>
+        </div>
+    </div>
+    <%- include('./include/scripts.ejs'); %> 
+</body>
+</html>
