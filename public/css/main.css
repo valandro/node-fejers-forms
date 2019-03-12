@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:500");
 h1, p {
   color: white;
   margin: inherit; }
@@ -6,7 +7,7 @@ h1, p {
   display: grid;
   background: #c84e4d;
   grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: repeat(9, 1fr); }
+  grid-template-rows: repeat(10, 1fr); }
 
 .center {
   grid-column: 1 / 13;
@@ -14,7 +15,7 @@ h1, p {
 
 .form {
   grid-row: 5 / 9;
-  grid-column: 3 / 11;
+  grid-column: 4 / 10;
   background: white;
   border-radius: 10px;
   padding: 45px;
@@ -31,7 +32,6 @@ h1, p {
     box-sizing: border-box;
     font-size: 14px; }
   .form button {
-    font-family: "Roboto", sans-serif;
     text-transform: uppercase;
     outline: 0;
     background: #c84e4d;
@@ -39,14 +39,15 @@ h1, p {
     border: 0;
     padding: 15px;
     color: #FFFFFF;
-    font-size: 14px;
+    font-size: 1.5rem;
     -webkit-transition: all 0.3 ease;
     transition: all 0.3 ease;
     cursor: pointer; }
   .form p {
     color: black;
     text-align: left;
-    font-size: 1.25rem; }
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem; }
 
 .text {
   grid-row: 4;
@@ -63,4 +64,5 @@ h1, p {
 
 body {
   margin: 0px;
-  display: inherit; }
+  display: inherit;
+  font-family: 'Montserrat', sans-serif; }

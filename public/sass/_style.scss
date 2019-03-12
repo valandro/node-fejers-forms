@@ -7,7 +7,7 @@ h1, p {
     display: grid;
     background: #c84e4d;
     grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: repeat(9, 1fr);
+    grid-template-rows: repeat(10, 1fr);
 }
 
 .center { 
@@ -17,7 +17,7 @@ h1, p {
 
 .form {
     grid-row: 5 / 9;
-    grid-column: 3 / 11;
+    grid-column: 4 / 10;
     background: white;
     border-radius: 10px;
     padding: 45px;
@@ -35,7 +35,6 @@ h1, p {
         font-size: 14px;
     }
     button {
-        font-family: "Roboto", sans-serif;
         text-transform: uppercase;
         outline: 0;
         background: #c84e4d;
@@ -43,7 +42,7 @@ h1, p {
         border: 0;
         padding: 15px;
         color: #FFFFFF;
-        font-size: 14px;
+        font-size: 1.5rem;
         -webkit-transition: all 0.3 ease;
         transition: all 0.3 ease;
         cursor: pointer;
@@ -52,6 +51,7 @@ h1, p {
         color: black;
         text-align: left;
         font-size: 1.25rem;
+        margin-bottom: 0.75rem;
       }
 }
 
