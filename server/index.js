@@ -26,7 +26,9 @@ app.post('/save', function(req, res) {
     if(validationError != "") {
         res.render('index', { message: validationError });
     } else {
-        mongo.MongoClient.connect(process.env.MONGO_URI, function(err, database) {
+        mongo.MongoClient.connect(process.env.MONGO_URI, {
+            useNewUrlParser: true
+        }, function(err, database) {
             if(err) console.log(err);
             const db = database.db('fejers');
 
@@ -42,6 +44,8 @@ app.post('/save', function(req, res) {
                 if(err) return console.log(err)
                 res.render('index', { message: success });
             });
+
+            database.close();
         });
     }
 });
