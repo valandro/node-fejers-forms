@@ -7,7 +7,7 @@ require('dotenv').config()
 const app = express();
 const port = 3001;
 const validator = require('./validator');
-const descrp = ["Capacitação", "Construção de time", "Processo Seletivo"];
+const descrp = ["Capacitação", "Construção de time", "Processo Seletivo", "Planejamento Estratégico"];
 
 
 
@@ -28,15 +28,16 @@ app.post('/save', function(req, res) {
     } else {
         mongo.MongoClient.connect(process.env.MONGO_URI, {
             useNewUrlParser: true
-        }, function(err, database) {
+        }, function(err, client) {
             if(err) console.log(err);
-            const db = database.db('fejers');
+            const db = client.db('fejers');
 
             const entity = {
                 topic: {
                     id: req.body.topic,
                     descrp: descrp[req.body.topic]
                 },
+                descrp: req.body.descrp,
                 link: req.body.link
             };
 
@@ -45,7 +46,7 @@ app.post('/save', function(req, res) {
                 res.render('index', { message: success });
             });
 
-            database.close();
+            client.close();
         });
     }
 });
