@@ -1,6 +1,6 @@
 module.exports = (req) => {
     let msg = "";
-    const httpsRegex = /((http|https):\/\/|#)/g;
+    const httpsRegex = /((http|https):\/\/|#|bit.ly\/)/g;
     const slackRegex = /#/g;
     if(req.topic == '-1') {
         msg = "Preencha um tópico válido!";
