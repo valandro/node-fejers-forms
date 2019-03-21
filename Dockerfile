@@ -1,7 +1,5 @@
 FROM node:10.15-slim
-# Create app directory
-WORKDIR /
-# Copy important files to root folder
+# Copy important files to root
 COPY package*.json ./
 COPY .env ./
 COPY gulpfile.js ./
