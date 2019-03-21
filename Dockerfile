@@ -1,10 +1,8 @@
 FROM node:10.15-slim
-# Copy important files to root
-COPY package*.json ./
-COPY .env ./
-COPY gulpfile.js ./
-COPY dist/ ./
+# Create app directory
+WORKDIR /usr/src/app
 # Install app dependencies
+COPY package*.json ./
 RUN npm install
 RUN npm install gulp -g
 # Bundle app source
