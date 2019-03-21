@@ -9,7 +9,7 @@ const validator = require('./validator');
 const Topic = require('./db/topic').Topic;
 const descrp = ["Capacitação", "Construção de time", "Processo Seletivo", "Planejamento Estratégico"];
 
-app.set('views', path.join(__dirname, '../public/src/'));
+app.set('views', path.join(__dirname, '../dist/views/'));
 app.use(express.static(path.join(__dirname, '../dist')));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set('view engine', 'ejs');
