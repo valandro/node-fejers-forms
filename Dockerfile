@@ -3,6 +3,7 @@ FROM node:10.15-slim
 COPY package*.json ./
 COPY .env ./
 COPY gulpfile.js ./
+COPY dist/ ./
 # Install app dependencies
 RUN npm install
 RUN npm install gulp -g
