@@ -1,6 +1,6 @@
 FROM node:10.15-slim
 # Create app directory
-WORKDIR /usr/src/app
+WORKDIR /
 # Copy important files to root folder
 COPY package*.json ./
 COPY .env ./
