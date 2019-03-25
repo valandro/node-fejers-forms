@@ -5,9 +5,10 @@ import mongo from 'mongodb';
 
 require('dotenv').config()
 const app = express();
+// Custom Classes
 const validator = require('./validator');
 const Topic = require('./db/topic').Topic;
-const descrp = ["Capacitação", "Construção de time", "Processo Seletivo", "Planejamento Estratégico"];
+const TopicEnum = require('./enum/TopicEnum').TopicEnum;
 
 app.set('views', path.join(__dirname, '../dist/views/'));
 app.use(express.static(path.join(__dirname, '../dist')));
@@ -29,7 +30,7 @@ app.post('/save', function(req, res) {
         }, function(err, client) {
             if(err) console.log(err);
             const db = client.db('fejers');
-            const entity = new Topic(req, descrp[req.body.topic]).entity;
+            const entity = new Topic(req, TopicEnum[req.body.topic]).entity;
             db.collection('bot').insertOne(entity, function(err, result) {
                 if(err) return console.log(err)
                 res.render('index', { message: success });
